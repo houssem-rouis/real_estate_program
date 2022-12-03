@@ -1,0 +1,317 @@
+[
+    {
+        "model": "src.Program",
+        "pk": 1,
+        "fields": {
+            "is_active":true,
+            "name": "Program_1"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 2,
+        "fields": {
+            "is_active":true,
+            "name": "Program_2"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 3,
+        "fields": {
+            "is_active":true,
+            "name": "Program_3"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 4,
+        "fields": {
+            "is_active":false,
+            "name": "Program_4"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 5,
+        "fields": {
+            "is_active":true,
+            "name": "Program_5"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 6,
+        "fields": {
+            "is_active":true,
+            "name": "Program_6"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 7,
+        "fields": {
+            "is_active":false,
+            "name": "Program_7"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 8,
+        "fields": {
+            "is_active":false,
+            "name": "Program_8"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 9,
+        "fields": {
+            "is_active":true,
+            "name": "Program_9"
+        }
+    },
+    {
+        "model": "src.Program",
+        "pk": 10,
+        "fields": {
+            "is_active":true,
+            "name": "Program_10"
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 1,
+        "fields": {
+            "surface": 50,
+            "price": 150,
+            "number_of_rooms": 5,
+            "caracteristics":"near ski resort | swimming pool",
+            "program": 1
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 2,
+        "fields": {
+            "surface": 75,
+            "price": 175,
+            "number_of_rooms": 7,
+            "caracteristics": "parking|cave"
+            ,
+            "program": 1
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 3,
+        "fields": {
+            "surface": 91,
+            "price": 292,
+            "number_of_rooms": 9,
+            "caracteristics": "swimming pool|garden"
+            ,
+            "program": 2
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 4,
+        "fields": {
+            "surface": 64,
+            "price": 218,
+            "number_of_rooms": 7,
+            "caracteristics": "well equipped|near ski resort"
+            ,
+            "program": 2
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 5,
+        "fields": {
+            "surface": 115,
+            "price": 206,
+            "number_of_rooms": 10,
+            "caracteristics":"cave|near ski resort",
+            "program": 3
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 6,
+        "fields": {
+            "surface": 96,
+            "price": 140,
+            "number_of_rooms": 8,
+            "caracteristics":"parking|near ski resort",
+            "program": 3
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 7,
+        "fields": {
+            "surface": 72,
+            "price": 112,
+            "number_of_rooms": 10,
+            "caracteristics": "parking|",
+            "program": 4
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 8,
+        "fields": {
+            "surface": 54,
+            "price": 195,
+            "number_of_rooms": 10,
+            "caracteristics":"near ski resort|well equipped",
+            "program": 4
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 9,
+        "fields": {
+            "surface": 39,
+            "price": 253,
+            "number_of_rooms": 3,
+            "caracteristics": "swimming pool|cave"
+            ,
+            "program": 5
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 10,
+        "fields": {
+            "surface": 74,
+            "price": 219,
+            "number_of_rooms": 4,
+            "caracteristics": "cave|near ski resort"
+            ,
+            "program": 5
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 11,
+        "fields": {
+            "surface": 38,
+            "price": 88,
+            "number_of_rooms": 8,
+            "caracteristics": "swimming pool|cave"
+            ,
+            "program": 6
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 12,
+        "fields": {
+            "surface": 55,
+            "price": 92,
+            "number_of_rooms": 4,
+            "caracteristics": "balcony|cave"
+            ,
+            "program": 6
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 13,
+        "fields": {
+            "surface": 82,
+            "price": 121,
+            "number_of_rooms": 3,
+            "caracteristics": "garden|well equipped"
+            ,
+            "program": 7
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 14,
+        "fields": {
+            "surface": 89,
+            "price": 120,
+            "number_of_rooms": 4,
+            "caracteristics": "american style|near ski resort"
+            ,
+            "program": 7
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 15,
+        "fields": {
+            "surface": 86,
+            "price": 278,
+            "number_of_rooms": 7,
+            "caracteristics":"balcony|garden"
+            ,
+            "program": 8
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 16,
+        "fields": {
+            "surface": 77,
+            "price": 221,
+            "number_of_rooms": 9,
+            "caracteristics": "cave|american style"
+            ,
+            "program": 8
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 17,
+        "fields": {
+            "surface": 43,
+            "price": 208,
+            "number_of_rooms": 9,
+            "caracteristics": "swimming pool|balcony"
+            ,
+            "program": 9
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 18,
+        "fields": {
+            "surface": 107,
+            "price": 86,
+            "number_of_rooms": 3,
+            "caracteristics": "well equipped|swimming pool"
+            ,
+            "program": 9
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 19,
+        "fields": {
+            "surface": 46,
+            "price": 99,
+            "number_of_rooms": 7,
+            "caracteristics":"cave|near ski resort"
+            ,
+            "program": 10
+        }
+    },
+    {
+        "model": "src.Apartment",
+        "pk": 20,
+        "fields": {
+            "surface": 93,
+            "price": 198,
+            "number_of_rooms": 3,
+            "caracteristics": "parking|swimming pool"
+            ,
+            "program": 10
+        }
+    }
+]
