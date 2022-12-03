@@ -1,0 +1,7 @@
+# ficher bd
+db.sqlite3
+
+# fichiers cache
+src/__pycache__
+src/migrations/__pycache__
+real_estate_program_project/__pycache__
