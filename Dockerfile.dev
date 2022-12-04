@@ -1,0 +1,17 @@
+ARG BASE_IMAGE
+FROM $BASE_IMAGE
+
+ENV PYTHONUNBUFFERED 1
+
+RUN mkdir /app
+
+WORKDIR /app
+
+ADD . /app/
+
+COPY requirements.txt requirements.txt
+COPY requirements-test.txt requirements-test.txt
+RUN apt-get update && apt-get -y install libmagic1
+RUN pip install -r requirements.txt -r requirements-test.txt
+
+COPY . /app/

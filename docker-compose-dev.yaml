@@ -1,12 +1,15 @@
 version: '3.9'
 
 services:
-  api:
+  api-test:
     build: 
       context: .
       args:
         - BASE_IMAGE=${BASE_IMAGE:-python:3.9-slim-buster}
+      dockerfile: ./Dockerfile.dev
     command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
     container_name: app
+    volumes:
+      - .:/app
     ports:
       - "8000:8000"
