@@ -12,4 +12,4 @@ test-build:
 
 test: stop test-build
 	target=src/tests
-	@docker-compose -f docker-compose-dev.yaml up
+	@docker-compose -f docker-compose-dev.yaml run -e BASE_IMAGE=$(BASE_IMAGE) api-test pytest -vv $(target)

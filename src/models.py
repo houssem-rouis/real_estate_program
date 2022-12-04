@@ -10,3 +10,5 @@ class Apartment(models.Model):
     number_of_rooms = models.IntegerField()
     caracteristics = models.CharField(max_length=255)
     program = models.ForeignKey(Program,related_name='Apartments',on_delete=models.CASCADE)
+    def __str__(self):
+        return {"price":self.price,"number_of_rooms":self.number_of_rooms,"caracteristics":self.caracteristics,"surface":self.surface}

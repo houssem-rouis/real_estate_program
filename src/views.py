@@ -8,8 +8,7 @@ from rest_framework.views import APIView
 from src.serializers import ApartmentPromoSerializer, ApartmentSerializer, ApartmentPostSerializer, ProgramSerializer
 from src.models import Apartment, Program
 from rest_framework import generics
-from django.db.models import Value, CharField
-
+from django.db.models import Value, CharField , Case, When, Value, IntegerField
 
 class ApartmentView(APIView):
 
@@ -47,25 +46,17 @@ class ApartmentView(APIView):
                                 safe=False)
 
 
-class ApartmentListActivePrograms(generics.ListAPIView):
+class ApartmentViewQueries(APIView):
     serializer_class = ApartmentSerializer
 
-    def get_queryset(self):
-       return Apartment.objects.filter(program__is_active=True)
+    def get_active_program_appartments(request):
+        return Apartment.objects.filter(program__is_active=True)
 
+    def get_programs_price_between(request):
+        return Apartment.objects.filter(
+            Q(price__gte=100) & Q(price__lte=180))
 
-class ApartmentListPriceBetween(generics.ListAPIView):
-    serializer_class = ApartmentSerializer
-
-    def get_queryset(self):
-       return Apartment.objects.filter(
-           Q(price__gte=100) & Q(price__lte=180))
-
-
-class ApartmentListPromoCode(generics.ListAPIView):
-    serializer_class = ApartmentPromoSerializer
-
-    def get_queryset(self):
+    def list_progrmas_promo_code(self):
 
         promo_code = self.kwargs.get('promo_code')
 
@@ -74,32 +65,33 @@ class ApartmentListPromoCode(generics.ListAPIView):
         else:
             return Apartment.objects.all()
 
-
-class ApartmentListBySeason(generics.ListAPIView):
-    serializer_class = ApartmentSerializer
-
-    def get_queryset(self):
+    def list_appartments_by_season(self):
         current_month = datetime.datetime.now().month
 
-  #      if current_month in [12,1,2,3]:
-        winter_apartments = Apartment.objects.filter(
-            "caracteristics__contains=near ski resort").order_by('-price', '-surface')
-        other_apartments = Apartment.objects.filter(
-            "caracteristics__notcontains=near ski resort",).order_by('-price', '-surface')
-
-        apartments = winter_apartments | other_apartments
-        return apartments
-
-        # # elif current_month in [6,7,8,9]:
-
-        # else:
-
-        #     return Apartment.objects.all().order_by('-price','-surface')
+        if current_month in [6, 7, 8, 9]:
+            return Apartment.objects.annotate(
+                custom_order=Case(
+                    When(caracteristics__contains="swimming pool", then=Value(1)),
+                    When(caracteristics__notcontains="swimming pool", then=Value(2)),
+                    output_field=IntegerField(),
+                )
+            ).order_by('custom_order', '-price', '-surface')
+        elif current_month in [12, 1, 2, 3]:
+            return Apartment.objects.annotate(
+                custom_order=Case(
+                    When(caracteristics__contains="near ski resort", then=Value(1)),
+                    When(caracteristics__notcontains="near ski resort",
+                         then=Value(2)),
+                    output_field=IntegerField(),
+                )
+            ).order_by('custom_order', '-price', '-surface')
+        else:
+            return Apartment.objects.all().order_by('-price', '-surface')
 
 
 class ProgramList(generics.ListAPIView):
    serializer_class = ProgramSerializer
 
-   def get_queryset(self):
+   def programs_with_swimming_pool(self):
 
        return Program.objects.filter(Apartments__caracteristics__contains='swimming pool').distinct()
