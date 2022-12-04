@@ -1,10 +1,9 @@
 from django.urls import path
-from src.views import ApartmentView ,ApartmentListPromoCode
+from src.views import ApartmentView
 
 
 
 urlpatterns = [
-    path('apartmentslist/<str:promo_code>', ApartmentListPromoCode.as_view()),
 
     path('apartments/', ApartmentView.as_view(), name=""),
 

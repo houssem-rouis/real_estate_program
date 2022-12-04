@@ -11,4 +11,4 @@ class Apartment(models.Model):
     caracteristics = models.CharField(max_length=255)
     program = models.ForeignKey(Program,related_name='Apartments',on_delete=models.CASCADE)
     def __str__(self):
-        return {"price":self.price,"number_of_rooms":self.number_of_rooms,"caracteristics":self.caracteristics,"surface":self.surface}
+        return str({"price":self.price,"number_of_rooms":self.number_of_rooms,"caracteristics":self.caracteristics,"surface":self.surface})
